@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Générer un QRCode</ion-title>
+        <ion-title>QRCode {{ qrCode.getText() }}</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -10,4 +10,12 @@
     <h3 padding>
         {{ qrCode.getText() }}
     </h3>
+
+    <ion-card text-center>
+        <button ion-button icon-end (click)="share()">
+            Share code
+            <ion-icon name="share-alt"></ion-icon>
+        </button>
+        <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+    </ion-card>
 </ion-content>
