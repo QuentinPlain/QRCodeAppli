@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Génération de QRCode</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Text to encode</ion-label>
+            <ion-input type="text" [(ngModel)]="textToEncode"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <div padding>
+        <button ion-button color="primary" block (click)="generate()">Generate</button>
+    </div>
+
+    <ion-card *ngIf="createdCode" text-center>
+        <button ion-button icon-end (click)="share()">
+            Share code
+            <ion-icon name="share-alt"></ion-icon>
+        </button>
+        <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+    </ion-card>
+</ion-content>

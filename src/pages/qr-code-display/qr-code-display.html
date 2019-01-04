@@ -1,0 +1,13 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Générer un QRCode</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+    {{ qrCode.getDate().toLocaleString() }}
+    <ngx-qrcode [qrc-value]="qrCode.getText()"></ngx-qrcode>
+    <h3 padding>
+        {{ qrCode.getText() }}
+    </h3>
+</ion-content>
